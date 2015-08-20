@@ -60,6 +60,10 @@ echo $LOGIN >> login.info
 echo $PASSWORD >> login.info
 chmod 400 login.info
 
+#move certificates to correct directory
+mv /etc/openvpn/pia/ca.crt /etc/openvpn/ca.crt
+mv /etc/openvpn/pia/crl.pem /etc/openvpn/crl.pem
+
 # Add "login.info" to server config file
 sed -i 's/auth-user-pass/auth-user-pass login.info/g' "$SERVER.conf"
 
