@@ -29,6 +29,8 @@ iptables -A OUTPUT -d 255.255.255.255 -j  ACCEPT
 iptables -A INPUT -s 255.255.255.255 -j ACCEPT
 iptables -A INPUT -s 10.0.0.0/16 -d 10.0.0.0/16 -j ACCEPT
 iptables -A OUTPUT -s 10.0.0.0/16 -d 10.0.0.0/16 -j ACCEPT
+iptables -A INPUT -s 192.168.0.0/16 -d 192.168.0.0/16 -j ACCEPT
+iptables -A OUTPUT -s 192.168.0.0/16 -d 192.168.0.0/16 -j ACCEPT
 iptables -A FORWARD -i eth0 -o tun0 -j ACCEPT
 iptables -A FORWARD -i tun0 -o eth0 -j ACCEPT
 iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
