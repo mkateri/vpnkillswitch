@@ -11,4 +11,4 @@ The Wiki will provide better instruction.
 ---------------------
 *********************
 ---------------------
-This fork uses resolv.conf for DNS leak protection and adds support for 192.168.0.x local networks.
+This fork uses resolv.conf for DNS leak protection and adds support for 192.168.0.x local networks. Puts the certificates into the correct directory.
