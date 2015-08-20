@@ -8,5 +8,7 @@ VPNKillSwitch is a service that runs a script every 30 seconds to determine if (
 
 The Wiki will provide better instruction.
 
-
+---------------------
+*********************
+---------------------
 This fork uses resolv.conf for DNS leak protection and adds support for 192.168.0.x local networks.
