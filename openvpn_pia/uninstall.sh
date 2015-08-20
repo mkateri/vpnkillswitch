@@ -10,6 +10,9 @@ service vpnkillswitch stop
 # Remove OpenVPN and configuration files
 apt-get purge openvpn
 
+#Restore original DNS
+mv /etc/resolvconf.old /etc/resolv.conf
+
 # Remove vpnkillswitch from init scripts
 service vpnkillswitch uninstall
 
