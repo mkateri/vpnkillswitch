@@ -66,12 +66,10 @@ sed -i 's/auth-user-pass/auth-user-pass login.info/g' "$SERVER.conf"
 # Tell OpenVPN to autostart
 echo "AUTOSTART=\"$SERVER\"" >> /etc/default/openvpn
 
-# Add PIA DNS servers to DHCP config (DNS leak protection)
-# This assumes you do not have resolvconf
-cp /etc/dhcp/dhclient.conf /etc/dhcp/dhclient.old
-echo "supersede domain-name-servers 209.222.18.222, 209.222.18.218;" >> /etc/dhcp/dhclient.conf
-echo "supersede domain-search \"127.0.0.1\";" >> /etc/dhcp/dhclient.conf
-echo "supersede domain-name \"127.0.0.1\";" >> /etc/dhcp/dhclient.conf
+# Add PIA DNS servers to resolv.conf (DNS leak protection)
+cp /etc/resolv.conf /etc/resolvconf.old
+cp /home/pi/Desktop/vpnkillswitch-master/resolv.conf /etc/resolv.conf
+chattr +i /etc/resolv.conf
 
 # Download vpnkillswitch and install as service
 mkdir /usr/vpnkillswitch
